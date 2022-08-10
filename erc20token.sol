@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.4;
 
-/// @author Glory Praise Emmanuel
+///  @author Glory Praise Emmanuel
 ///  @title Vibes ERC20Token
 ///  @notice An ERC20 Token using Openszeppelin contract that mints to contract, and has a withdraw function to transfer tokens to another address
 

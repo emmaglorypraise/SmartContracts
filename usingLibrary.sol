@@ -3,16 +3,16 @@
 pragma solidity 0.8.10;
 
 library CalculationLIbrary {
-  function multiply(uint a, uint b) pure public returns (uint result) {
+  function multiply(uint a, uint b) pure internal returns (uint result) {
     return(a * b);
   }
-  function add(uint a, uint b) pure public returns (uint result) {
+  function add(uint a, uint b) pure internal returns (uint result) {
     return(a + b);
   }
-  function sub(uint a, uint b) pure public returns (uint result) {
+  function sub(uint a, uint b) pure internal returns (uint result) {
     return(a - b);
   }
-  function div(uint a, uint b) pure public returns (uint result) {
+  function div(uint a, uint b) pure internal returns (uint result) {
     return(a / b);
   }
 
@@ -20,7 +20,7 @@ library CalculationLIbrary {
 
 contract UsingLibrary {
 
-  using CalculationLIbrary for *;
+  using CalculationLIbrary for uint;
 
   address owner = address(this);
 

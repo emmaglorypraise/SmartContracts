@@ -12,7 +12,7 @@ contract MultiSig {
 
     address[] validSigner;
     uint256 ID = 1;
-    uint256 public Quorum = (validSigner.length * 70) / 100;
+    uint256 public Quorum = 3;
     //maping of trnsaction Id to number of approval to status
     mapping(uint256 => mapping(uint256 => bool)) _approved;
     //mapping of transactionId to number of approval
@@ -28,9 +28,9 @@ contract MultiSig {
 
     function withdrawEther(uint256 _amount) external {
         bool _valid = validOwner();
-        Approve(ID);
         beneficiary[ID] = msg.sender;
         amount[ID] = _amount;
+        Approve(ID);
         ID++;
     }
 
@@ -41,7 +41,6 @@ contract MultiSig {
             if (msg.sender == validSigner[i]) {
                 valid = msg.sender;
             }
-            
         }
         assert(valid != address(0));
             success = true;
@@ -52,9 +51,10 @@ contract MultiSig {
         uint256 value = amount[id];
         address _ben = beneficiary[id];
         assert(signed[msg.sender][id] == false);
-        uint256 num = noOfApproval[id] + 1;
-        if (num >= Quorum) {
-            _approved[id][num] = true;
+        signed[msg.sender][id] = true;
+        noOfApproval[id] = noOfApproval[id] + 1;
+        if (noOfApproval[id] >= Quorum) {
+            _approved[id][noOfApproval[id]] = true;
             payable(_ben).transfer(value);
         }
     }

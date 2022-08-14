@@ -1,8 +1,21 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
+import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
+require("dotenv").config({ path: ".env" });
+// import * as dotenv from "dotenv";
 
-const config: HardhatUserConfig = {
-  solidity: "0.8.9",
+// dotenv.config()
+
+const ROPSTEN_API_KEY_URL = process.env.ROPSTEN_API_KEY_URL;
+
+const ROPSTEN_PRIVATE_KEY = process.env.ROPSTEN_PRIVATE_KEY;
+
+
+module.exports = {
+  solidity: "0.8.10",
+  networks: {
+    ropsten: {
+      url: ROPSTEN_API_KEY_URL,
+      accounts: [ROPSTEN_PRIVATE_KEY],
+    }
+  }
 };
-
-export default config;

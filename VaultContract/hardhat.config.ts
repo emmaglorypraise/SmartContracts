@@ -11,6 +11,11 @@ const API_TOKEN = process.env.API_TOKEN;
 module.exports = {
   solidity: "0.8.9",
   networks: {
+    hardhat: {
+      forking: {
+        url: ALCHEMY_RINKEBY_API_KEY_URL,
+      },
+    },
     rinkeby: {
       url: ALCHEMY_RINKEBY_API_KEY_URL,
       accounts: [RINKEBY_PRIVATE_KEY],

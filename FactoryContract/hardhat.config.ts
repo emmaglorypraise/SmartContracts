@@ -13,6 +13,11 @@ const ROPSTEN_PRIVATE_KEY = process.env.ROPSTEN_PRIVATE_KEY;
 module.exports = {
   solidity: "0.8.10",
   networks: {
+    hardhat: {
+      forking: {
+        url: ROPSTEN_API_KEY_URL,
+      },
+    },
     ropsten: {
       url: ROPSTEN_API_KEY_URL,
       accounts: [ROPSTEN_PRIVATE_KEY],

@@ -9,19 +9,16 @@ async function main() {
   const CONTRACTADDRESS = "0x6e828b59fc799b6ef92e42d2f39e438a7477f469";
   const MULTISIG = await ethers.getContractAt("IMultiSig", CONTRACTADDRESS);
 
-
-
   const bal = await MULTISIG.contractBalance();
   console.log("contractBalance", bal);
 
   //2146308405940782866 old
 
-//   contractBalance BigNumber { value: "1210000000100000000" }
-// Impersonate balance BigNumber { value: "2146308405940782866" }
-
+  //   contractBalance BigNumber { value: "1210000000100000000" }
+  // Impersonate balance BigNumber { value: "2146308405940782866" }
 
   //Impersonate balance2 BigNumber { value: "2145301929936085978" }
-// contractBalance 2 BigNumber { value: "1210000000100000000" }
+  // contractBalance 2 BigNumber { value: "1210000000100000000" }
 
   const address = "0x88538EE7D25d41a0B823A7354Ea0f2F252AD0fAf";
   const address1 = "0x7A3E0DFf9B53fA0d3d1997903A48677399b22ce7";
@@ -54,43 +51,32 @@ async function main() {
   let impBal = await impersonatedSigner.getBalance();
   console.log("Impersonate balance", impBal);
 
-
   await helpers.impersonateAccount(address1);
   const impersonatedSigner1 = await ethers.getSigner(address1);
-
 
   await helpers.impersonateAccount(address2);
   const impersonatedSigner2 = await ethers.getSigner(address2);
 
-
   await helpers.impersonateAccount(address3);
   const impersonatedSigner3 = await ethers.getSigner(address3);
-
 
   await helpers.impersonateAccount(address4);
   const impersonatedSigner4 = await ethers.getSigner(address4);
 
-
   await helpers.impersonateAccount(address5);
   const impersonatedSigner5 = await ethers.getSigner(address5);
-
 
   await helpers.impersonateAccount(address6);
   const impersonatedSigner6 = await ethers.getSigner(address6);
 
-
   await helpers.impersonateAccount(address7);
   const impersonatedSigner7 = await ethers.getSigner(address7);
-
 
   await helpers.impersonateAccount(address8);
   const impersonatedSigner8 = await ethers.getSigner(address8);
 
-
-
   // const rec = await (await MULTISIG.connect(impersonatedSigner).withdrawEther(_value)).wait();
   // console.log(rec);
-
 
   // const approve1 = await MULTISIG.connect(impersonatedSigner1).Approve(8);
   // const approve2 = await MULTISIG.connect(impersonatedSigner2).Approve(8);
@@ -115,4 +101,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-

@@ -7,6 +7,8 @@ require("dotenv").config({ path: ".env" });
 
 const ROPSTEN_API_KEY_URL = process.env.ROPSTEN_API_KEY_URL;
 
+const ETHEREUM_MAINNET_API_KEY_URL = "https://mainnet.infura.io/v3/7e0349ac80744375934bcf0ae67a9a9c";
+
 const ROPSTEN_PRIVATE_KEY = process.env.ROPSTEN_PRIVATE_KEY;
 
 
@@ -15,7 +17,7 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: ROPSTEN_API_KEY_URL,
+        url: ETHEREUM_MAINNET_API_KEY_URL,
       },
     },
     ropsten: {

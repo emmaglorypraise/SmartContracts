@@ -18,8 +18,8 @@ async function main() {
   // const amountInMax =   ethers.utils.parseUnits("2000", "6");
   const amountOutMin =   ethers.utils.parseUnits("10", "6");
 
-  const amountADesired = 200;
-  const amountBDesired = 800;
+  const amountADesired = 800e6;
+  const amountBDesired = 800e6;
   const amountAMin = 1;
   const amountBMin = 1;
 
@@ -58,17 +58,17 @@ async function main() {
 
   // ----------------- SWAP EXACT TOKEN TO TOKEN ----------------------
 
-  await USDC.approve(UNIRouter, amountIn);
+  // await USDC.approve(UNIRouter, amountIn);
 
-  const result = await ROUTER.swapExactTokensForTokens(
-    amountIn,
-    amountOutMin,
-    [USDCAddress, USDTAddress],
-    USDCHolder,
-    deadline
-  );
+  // const result = await ROUTER.swapExactTokensForTokens(
+  //   amountIn,
+  //   amountOutMin,
+  //   [USDCAddress, USDTAddress],
+  //   USDCHolder,
+  //   deadline
+  // );
 
-  console.log(result.wait());
+  // console.log(result.wait());
 
   const USDCBalAfter = await USDC.balanceOf(USDCHolder);
   const USDTBalAfter = await USDT.balanceOf(USDCHolder);
@@ -80,18 +80,18 @@ async function main() {
 
   // ----------------- ADD LIQUIDITY FUNCTION ----------------------
 
-  // const result2 = await ROUTER.addLiquidity(
-  //   USDCAddress,
-  //   USDTAddress,
-  //   amountADesired,
-  //   amountBDesired,
-  //   amountAMin,
-  //   amountBMin,
-  //   USDCHolder,
-  //   deadline
-  // );
+  const result2 = await ROUTER.addLiquidity(
+    USDCAddress,
+    USDTAddress,
+    amountADesired,
+    amountBDesired,
+    amountAMin,
+    amountBMin,
+    USDCHolder,
+    deadline
+  );
 
-  // console.log("Liquidity added:", result2.wait());
+  console.log("Liquidity added:", result2.wait());
 
 
 

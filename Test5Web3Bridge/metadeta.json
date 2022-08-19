@@ -1,0 +1,24 @@
+{
+  "description": "This is my Web3Bridge fifth test NFT Smart Contract created with Solidity, Hardhat, Pinata, etc",
+  "external_url": "https://twitter.com/emmaglorypraise_",
+  "image": "ipfs://QmbGsUghAUpjnoZVwjv4emmYstqiCWYck27ojmHoB3XRTR",
+  "name": "Glory Praise Emmanuel",
+  "attributes": [
+    {
+      "trait_type": "Gender",
+      "value": "Female"
+    },
+    {
+      "trait_type": "Cause",
+      "value": "Web3bridge Test 5"
+    },
+    {
+      "trait_type": "Token Standard",
+      "value": "ERC721"
+    },
+    {
+      "trait_type": "Date",
+      "value": "19th August 2022"
+    }
+  ]
+}

@@ -11,20 +11,15 @@ async function main() {
   const USDCAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
   const USDTAddress = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
   const UNIRouter = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
-  // const amountOut =   ethers.utils.parseUnits("1800", "6");
-  const amountIn =   ethers.utils.parseUnits("1800", "6");
 
-  // 2e6;
-  // const amountInMax =   ethers.utils.parseUnits("2000", "6");
+  const amountIn =   ethers.utils.parseUnits("1800", "6");
   const amountOutMin =   ethers.utils.parseUnits("10", "6");
 
   const amountADesired = 800e6;
   const amountBDesired = 800e6;
-  const amountAMin = 1;
-  const amountBMin = 1;
+  const amountAMin = 100e4;
+  const amountBMin = 100e4;
 
-  // 3e6;
-  // ethers.utils.parseUnits("2000", "18");
 
   // ----------------- IMPERSONATE SIGNER ON MAINNET ----------------------
 
@@ -79,6 +74,14 @@ async function main() {
 
 
   // ----------------- ADD LIQUIDITY FUNCTION ----------------------
+
+  await USDC.approve(USDCHolder, amountADesired);
+
+  await USDT.approve(USDCHolder, amountADesired);
+
+  await USDC.approve(UNIRouter, amountADesired);
+
+  await USDT.approve(UNIRouter, amountADesired);
 
   const result2 = await ROUTER.addLiquidity(
     USDCAddress,
